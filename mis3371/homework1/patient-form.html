@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<!--
+	Program name: patient-form.html
+	Author: Veronica G Flores
+	Date created: June 12, 2026
+	Date last edited: June 18, 2026
+	Version: 1.0
+	Description: Homework 1 Patient Registration form
+-->
+<html>
+	<head>
+		<title>Veronica Flores Homework 1</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+
+		<div id="header">
+			<h1>Misu Medical Institute</h1>
+			<p>
+				Today's Date:
+				<span id="today"></span>
+			</p>
+		</div>
+
+		<form action="thankyou.html" method="post">
+
+			<h2>Patient Registration Form</h2>
+
+			<h3>Account Information</h3>
+				<table>
+					<tr>
+						<td>First Name:</td>
+							<td>
+								<input type="text" name="firstname" required>
+							</td>
+						<td>Middle Initial:</td>
+							<td>
+								<input type="text" name="middleinit">							
+							</td>
+						<td>Last Name:</td>
+							<td>
+								<input type="text" name="lastname" required>							
+							</td>
+					</tr>
+					<tr>
+						<td>DOB:</td>
+							<td>
+								<input type="date" name="dob" required>
+							</td>
+					</tr>
+					<tr>
+						<td>Username:</td>
+							<td>								
+								<input type="text" name="username" required>							
+							</td>
+					</tr>
+					<tr>						
+						<td>Password:</td>
+							<td>								
+								<input type="password" name="password" required>							
+							</td>
+					</tr>
+					<tr>
+						<td>Confirm Password:</td>
+							<td>								
+								<input type="password" name="confirm_password" required>
+							</td>
+					</tr>	
+				</table>
+			<h3>Patient Demographics</h3>
+				<table>
+					<tr>
+						<td>Address Line 1:</td>
+						   <td>						
+								<input type="text" name="address1" required>					
+							</td>			
+					</tr>
+					<tr>
+						<td>Address Line 2:</td>
+							<td>
+								<input type="text" name="address2">						
+							</td>
+					</tr>
+					<tr>
+						<td>City:</td>
+							<td>							
+								<input type="text" name="city" required>							
+							</td>
+						<td>State:</td>
+							<td>
+								<input type="text" name="state" required>						
+							</td>
+						<td>Zip Code:</td>						
+							<td>								
+								<input type="text" name="zip" required>							
+							</td>
+					</tr>
+					<tr>
+						<td>SSN:</td>					
+							<td>
+								<input type="text" name="ssn" required>						
+							</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+							<td>								
+								<input type="email" name="email" required>							
+							</td>
+						<td>Phone Number:</td>
+							<td>								
+								<input type="text" name="phone1" required>							
+							</td>
+					</tr>
+					<tr>
+						<td>Emergency Contact Name:</td>
+							<td>							
+								<input type="text" name="emergency_name">							
+							</td>
+						<td>Emergency Contact Phone Number:</td>						
+							<td>							
+								<input type="text" name="emergency_phone">							
+							</td>
+					</tr>					
+					<tr>
+						<td>Gender:</td>
+							<td>
+								<input type="radio" name="gender" value="1"> Female
+								<input type="radio" name="gender" value="2"> Male
+								<input type="radio" name="gender" value="3"> Prefer not to answer
+							</td>
+					</tr>
+					<tr>
+						<td>Marital Status:</td>
+							<td>
+								<input type="radio" name="marital_status" value="1"> Single
+								<input type="radio" name="marital_status" value="2"> Married
+								<input type="radio" name="marital_status" value="3"> Divorced
+								<input type="radio" name="marital_status" value="4"> Widowed
+								<input type="radio" name="marital_status" value="5"> Other
+							</td>
+					</tr>
+					<tr>
+						<td>Insurance:</td>
+							<td>
+								<input type="radio" name="insurance" value="1"> Yes
+								<input type="radio" name="insurance" value="0"> No
+							</td>
+					</tr>
+				</table>
+			<h3>Insurance Information</h3>
+				<table>
+					<tr>
+						<td>Primary Insurance:</td>
+							<td>
+								<input type="text" name="insurance_name">
+							</td>
+						<td>Phone Number:</td>
+							<td>
+								<input type="text" name="insurance_phone">
+							</td>
+					</tr>
+					<tr>
+						<td>Group Number:</td>
+							<td>
+								<input type="text" name="group_number">
+							</td>
+						<td>Policy/Member ID Number:</td>
+							<td>
+								<input type="text" name="member_id">
+							</td>
+					</tr>
+					<tr>
+						<td>Policy Holder Name:</td>
+							<td>
+								<input type="text" name="policy_holder_name">
+							</td>
+						<td>Relationship to Patient:</td>
+							<td>
+								<input type="radio" name="relationship" value="1"> Self
+								<input type="radio" name="relationship" value="2"> Spouse
+								<input type="radio" name="relationship" value="3"> Child
+								<input type="radio" name="relationship" value="4"> Parent
+								<input type="radio" name="relationship" value="5"> Other
+							</td>
+					</tr>
+					<tr>
+						<td>Policy Holder DOB:</td>
+							<td>
+								<input type="date" name="policy_holder_dob">
+							</td>
+						<td>Policy Holder SSN:</td>
+							<td>
+								<input type="text" name="policy_holder_ssn">
+							</td>	
+					</tr>
+				</table>
+			<h3>Medical History</h3>
+				<table>
+					<tr>
+						<td>Do you suffer from any medical conditions? (Check all that apply)</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="heart_disease" value="heart_disease"> Heart Disease
+							<input type="checkbox" name="diabetes" value="diabetes"> Diabetes
+							<input type="checkbox" name="gout" value="gout"> Gout
+							<input type="checkbox" name="tuberculosis" value="tuberculosis"> Tuberculosis
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="cancer" value="cancer"> Cancer
+							<input type="checkbox" name="hiv_aids" value="hiv_aids"> HIV/AIDS
+							<input type="checkbox" name="arthritis" value="arthritis"> Arthritis
+							<input type="checkbox" name="ulcers" value="ulcers"> Ulcers
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="hbp" value="hbp"> High Blood Pressure
+							<input type="checkbox" name="epilepsy" value="epilepsy"> Epilepsy
+							<input type="checkbox" name="liver_disease" value="liver_disease"> Liver Disease
+							<input type="checkbox" name="high_cholesterol" value="high_cholesterol"> High Cholesterol
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="stroke" value="stroke"> Stroke
+							<input type="checkbox" name="asthma" value="asthma"> Asthma
+							<input type="checkbox" name="kidney_disease" value="kidney_disease"> Kidney Disease
+							<input type="checkbox" name="other_condition" value="other"> Other
+						</td>
+					</tr>
+					<tr>
+						<td>How much pain are you experiencing?</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="range" class="slider" id="health_rating" name="health_rating" min="1" step="1" max="10">
+						</td>
+					</tr>
+					<tr> 
+						<td>Please list any medications currently taking:</td>
+					</tr>
+					<tr>	
+							<td>
+								<textarea name="current_medications" rows="4" cols="50"></textarea>
+							</td>
+					</tr>
+				</table>
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">	
+		</form>
+		<script>
+			const d=new Date();
+			let text=d.toLocaleDateString();
+			document.getElementById("today").innerHTML=text;
+		</script>
+		<div id="footer">
+			<h4>Misu Medical Institute</h4>
+		</div>
+	</body>
+</html>
 
