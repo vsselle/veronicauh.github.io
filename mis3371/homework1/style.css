@@ -22,8 +22,9 @@ body {
 	color: white;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	padding: 1%;
-	width: 80%;
+	width: 82%;
 	margin: 0 auto;
+	overflow: auto;
 }
 
 form {
@@ -49,7 +50,6 @@ form {
 
 #logo {
 	width: 15%;
-	height: auto;	
 	float: right;
 }
 
@@ -109,12 +109,16 @@ h3 {
 	font-weight: bold;
 }
 
+#medical_history {
+	text-align: center;
+}
+
 /*========================================
 	Buttons
 ========================================*/
 
 #buttons {
-	height: 50px;
+	height: 30px;
 }
 
 #submit_button {
