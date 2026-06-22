@@ -1,1 +1,132 @@
+/*========================================
+	Program name: style.css
+	Author: Veronica G Flores
+	Date created: June 12, 2026
+	Date last edited: June 21, 2026
+	Version: 1.0
+	Description: Style sheet for Homework 1 Patient Registration form
+========================================*/
+
+/*========================================
+	Page Layout
+========================================*/
+
+body {
+	background-color: #F5F3EE;
+	width: 95%;
+	margin: auto;
+}
+
+#header {
+	background-color: #687351;
+	color: white;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	padding: 1%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+form {
+	width: 80%;
+	margin: 0 auto;
+	background-color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	padding: 2%;
+}
+
+#footer {
+	background-color: #677150;
+	color: white;
+	width: 80%;
+	margin: 0 auto;
+	padding: 2%;
+	text-align: center;
+}
+
+/*========================================
+	Header
+========================================*/
+
+#logo {
+	width: 15%;
+	height: auto;	
+	float: right;
+}
+
+#header h1 {
+	margin-top: 0%;
+	margin-bottom: 1%;
+}
+
+/*========================================
+	Tables and Form Elements
+========================================*/
+
+table {
+	width: 100%;
+	margin: auto;
+}
+
+td {
+	padding: 1%;
+	vertical-align: middle;
+}
+
+input {
+	padding: 0.5%;
+}
+
+textarea {
+	width: 90%;
+}
+
+label {
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3 {
+	padding: 1%;
+}
+
+/*========================================
+	Form Sections
+========================================*/
+
+.section {
+	background-color: white;
+	margin-bottom: 2%;
+	border: 1px solid #666666;
+}
+
+.section-title {
+	background-color: #C8C1B1;
+	padding: 0.5%;
+	font-weight: bold;
+}
+
+/*========================================
+	Buttons
+========================================*/
+
+#buttons {
+	height: 50px;
+}
+
+#submit_button {
+	background-color: #687351;
+	color: white;
+	float: left;
+	padding: 10px;
+}
+
+#reset_button {
+	background-color: #D8B65C;
+	float: right;
+	padding: 10px;
+}
 

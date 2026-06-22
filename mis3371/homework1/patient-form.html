@@ -1,268 +1,485 @@
 <!DOCTYPE html>
-<!--
+<!--========================================
 	Program name: patient-form.html
 	Author: Veronica G Flores
 	Date created: June 12, 2026
-	Date last edited: June 18, 2026
+	Date last edited: June 21, 2026
 	Version: 1.0
 	Description: Homework 1 Patient Registration form
--->
+========================================-->
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Veronica Flores Homework 1</title>
-		<link href="style.css" rel="stylesheet" type="text/css">
+		<!-- Load external CSS files -->
+		<link rel="stylesheet" href="style.css">
 	</head>
 
 	<body>
-
+		<!--======================================== Header section ========================================-->
 		<div id="header">
-             <img id="logo" src="homework1-logo.png" alt="Misu Medical Institute Logo">
-             
-            </table>
-			<h1>Misu Medical Institute</h1>
-			<p>
-				Today's Date:
-				<span id="today"></span>
-			</p>
+			<table width="100%">
+				<tr>
+					<td> 
+						<h1>Misu Medical Institute</h1>
+					</td>
+					<td>
+						<!-- Logo -->
+						<img id="logo" src="homework1-logo.png" alt="Misu Medical Institute Logo">
+					</td>
+				</tr>
+			</table>
+			<!-- Automated Dynamic Date -->
+			<p>Today's Date: <span id="today"></span></p>
 		</div>
 
-		<form action="thankyou.html" method="post">
 
+		<!--======================================== Main Body Form Section ========================================-->
+		<form action="thankyou.html" method="post">
 			<h2>Patient Registration Form</h2>
 
-			<h3>Account Information</h3>
+			<!--======================================== Block 1: Account Information ========================================-->
+			<div class="section">
+				<div class="section-title">
+					Account Information
+				</div>
 				<table>
 					<tr>
-						<td>First Name:</td>
-							<td>
-								<input type="text" name="firstname" required>
-							</td>
-						<td>Middle Initial:</td>
-							<td>
-								<input type="text" name="middleinit">							
-							</td>
-						<td>Last Name:</td>
-							<td>
-								<input type="text" name="lastname" required>							
-							</td>
+						<td>
+							<label for="firstname">Patient Name:</label>
+						</td>
+						<td>
+							<input type="text" id="firstname" name="firstname" minlength="2" maxlength="30" placeholder="First Name" required>
+						</td>
+						<td>
+							<input type="text" id="middleinit" name="middleinit" maxlength="1" placeholder="MI">
+						</td>
+						<td>
+							<input type="text" id="lastname" name="lastname" minlength="2" maxlength="30" placeholder="Last Name" required>
+						</td>
 					</tr>
 					<tr>
-						<td>DOB:</td>
-							<td>
-								<input type="date" name="dob" required>
-							</td>
+						<td>
+							<label for="dob">DOB:</label>
+						</td>
+						<td>
+							<input type="date" id="dob" name="dob" required>
+						</td>
 					</tr>
 					<tr>
-						<td>Username:</td>
-							<td>								
-								<input type="text" name="username" required>							
-							</td>
+						<td>
+							<label for="username">Username:</label>
+						</td>
+						<td>
+							<input type="text" id="username" name="username" maxlength="20" pattern="[A-Za-z]+[A-Za-z0-9-_]{8,}" placeholder="Create Username" required>
+						</td>
 					</tr>
 					<tr>						
-						<td>Password:</td>
-							<td>								
-								<input type="password" name="password" required>							
-							</td>
+						<td>
+							<label for="password">Password:</label>
+						</td>
+						<td>
+							<input type="password" id="password" name="password" minlength="8" placeholder="Minimum 8 characters" required>
+						</td>
 					</tr>
 					<tr>
-						<td>Confirm Password:</td>
-							<td>								
-								<input type="password" name="confirm_password" required>
-							</td>
+						<td>
+							<label for="confirm_password">Confirm Password:</label>
+						</td>
+						<td>
+							<input type="password" id="confirm_password" name="confirm_password" placeholder="********" minlength="8" required>
+						</td>
 					</tr>	
 				</table>
-			<h3>Patient Demographics</h3>
+			</div>
+
+
+			<!--======================================== Block 2: Patient Demographics ========================================-->
+			<div class="section">
+				<div class="section-title">
+					Patient Demographics
+				</div>
 				<table>
 					<tr>
-						<td>Address Line 1:</td>
-						   <td>						
-								<input type="text" name="address1" required>					
-							</td>			
+						<td>
+							<label for="address1">Address 1:</label>
+						</td>
+						<td>
+							<input type="text" id="address1" name="address1" maxlength="30" placeholder="123 Wellness Drive" required>
+						</td>			
 					</tr>
 					<tr>
-						<td>Address Line 2:</td>
-							<td>
-								<input type="text" name="address2">						
-							</td>
+						<td>
+							<label for="address2">Address 2:</label>
+						</td>
+						<td>
+							<input type="text" id="address2" name="address2" maxlength="30" placeholder="Apt, Unit, Etc...">
+						</td>
 					</tr>
 					<tr>
-						<td>City:</td>
-							<td>							
-								<input type="text" name="city" required>							
-							</td>
-						<td>State:</td>
-							<td>
-								<input type="text" name="state" required>						
-							</td>
-						<td>Zip Code:</td>						
-							<td>								
-								<input type="text" name="zip" required>							
-							</td>
+						<td>
+							<label for="city">City, State, Zip:</label>
+						</td>
+						<td>
+							<input type="text" id="city" name="city" maxlength="30" placeholder="City" required>
+						</td>
+						<td>		
+							<!-- Source: https://www.freeformatter.com/usa-state-list-html-select.html -->
+							<select id="state" name="state" placeholder="State" required>
+								<option value="" selected>(Please Select a State)</option>
+								<option value="AL">Alabama</option>
+								<option value="AK">Alaska</option>
+								<option value="AZ">Arizona</option>
+								<option value="AR">Arkansas</option>
+								<option value="CA">California</option>
+								<option value="CO">Colorado</option>
+								<option value="CT">Connecticut</option>
+								<option value="DE">Delaware</option>
+								<option value="DC">District Of Columbia</option>
+								<option value="FL">Florida</option>
+								<option value="GA">Georgia</option>
+								<option value="HI">Hawaii</option>
+								<option value="ID">Idaho</option>
+								<option value="IL">Illinois</option>
+								<option value="IN">Indiana</option>
+								<option value="IA">Iowa</option>
+								<option value="KS">Kansas</option>
+								<option value="KY">Kentucky</option>
+								<option value="LA">Louisiana</option>
+								<option value="ME">Maine</option>
+								<option value="MD">Maryland</option>
+								<option value="MA">Massachusetts</option>
+								<option value="MI">Michigan</option>
+								<option value="MN">Minnesota</option>
+								<option value="MS">Mississippi</option>
+								<option value="MO">Missouri</option>
+								<option value="MT">Montana</option>
+								<option value="NE">Nebraska</option>
+								<option value="NV">Nevada</option>
+								<option value="NH">New Hampshire</option>
+								<option value="NJ">New Jersey</option>
+								<option value="NM">New Mexico</option>
+								<option value="NY">New York</option>
+								<option value="NC">North Carolina</option>
+								<option value="ND">North Dakota</option>
+								<option value="OH">Ohio</option>
+								<option value="OK">Oklahoma</option>
+								<option value="OR">Oregon</option>
+								<option value="PA">Pennsylvania</option>
+								<option value="PR">Puerto Rico</option>
+								<option value="RI">Rhode Island</option>
+								<option value="SC">South Carolina</option>
+								<option value="SD">South Dakota</option>
+								<option value="TN">Tennessee</option>
+								<option value="TX">Texas</option>
+								<option value="UT">Utah</option>
+								<option value="VT">Vermont</option>
+								<option value="VA">Virginia</option>
+								<option value="WA">Washington</option>
+								<option value="WV">West Virginia</option>
+								<option value="WI">Wisconsin</option>
+								<option value="WY">Wyoming</option>
+							</select>
+						</td>
+						<td>
+							<input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="Zip" required>
+						</td>
 					</tr>
 					<tr>
-						<td>SSN:</td>					
-							<td>
-								<input type="text" name="ssn" required>						
-							</td>
+						<td>
+							<label for="ssn">SSN:</label>
+						</td>		
+						<td>
+							<input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" placeholder="###-##-####" required>
+						</td>
 					</tr>
 					<tr>
-						<td>Email:</td>
-							<td>								
-								<input type="email" name="email" required>							
-							</td>
-						<td>Phone Number:</td>
-							<td>								
-								<input type="text" name="phone1" required>							
-							</td>
+						<td>
+							<label for="email">Email:</label>
+						</td>
+						<td>
+							<input type="email" id="email" name="email" placeholder="name@example.com" required>
+						</td>
+
+						<td>
+							<label for="phone1">Primary Phone Number:</label>
+						</td>
+						<td>
+							<input type="text" id="phone1" name="phone1" minlength="10" maxlength="12" placeholder="281-000-0000" required>
+						</td>
 					</tr>
 					<tr>
-						<td>Emergency Contact Name:</td>
-							<td>							
-								<input type="text" name="emergency_name">							
-							</td>
-						<td>Emergency Contact Phone Number:</td>						
-							<td>							
-								<input type="text" name="emergency_phone">							
-							</td>
-					</tr>					
+						<td>
+							<label for="emergency_name">Emergency Contact:</label>
+						</td>
+						<td>
+							<input type="text" id="emergency_name" name="emergency_name" placeholder="First and Last">
+						</td>
+
+						<td>
+							<label for="emergency_phone">Emergency Phone:</label>
+						</td>
+						<td>
+							<input type="text" id="emergency_phone" name="emergency_phone" minlength="10" maxlength="12" placeholder="281-000-0000">
+						</td>
+					</tr>			
 					<tr>
-						<td>Gender:</td>
-							<td>
-								<input type="radio" name="gender" value="1"> Female
-								<input type="radio" name="gender" value="2"> Male
-								<input type="radio" name="gender" value="3"> Prefer not to answer
-							</td>
+						<td>
+							<label>Gender:</label>
+						</td>
+						<td colspan="3"> 
+							<input type="radio" id="female" name="gender" value="1" required>
+							<label for="female">Female</label>
+
+							<input type="radio" id="male" name="gender" value="2">
+							<label for="male">Male</label>
+
+							<input type="radio" id="prefer_not_to_answer" name="gender" value="3">
+							<label for="prefer_not_to_answer">Prefer not to answer</label>
+						</td>
 					</tr>
 					<tr>
-						<td>Marital Status:</td>
-							<td>
-								<input type="radio" name="marital_status" value="1"> Single
-								<input type="radio" name="marital_status" value="2"> Married
-								<input type="radio" name="marital_status" value="3"> Divorced
-								<input type="radio" name="marital_status" value="4"> Widowed
-								<input type="radio" name="marital_status" value="5"> Other
-							</td>
+						<td>
+							<label>Marital Status:</label>
+						</td>
+						<td colspan="3">
+							<input type="radio" id="single" name="marital_status" value="1" required>
+							<label for="single">Single</label>
+
+							<input type="radio" id="married" name="marital_status" value="2">
+							<label for="married">Married</label>
+
+							<input type="radio" id="divorced" name="marital_status" value="3">
+							<label for="divorced">Divorced</label>
+
+							<input type="radio" id="widowed" name="marital_status" value="4">
+							<label for="widowed">Widowed</label>
+
+							<input type="radio" id="other" name="marital_status" value="5">
+							<label for="other">Other</label>
+						</td>
 					</tr>
 					<tr>
-						<td>Insurance:</td>
-							<td>
-								<input type="radio" name="insurance" value="1"> Yes
-								<input type="radio" name="insurance" value="0"> No
-							</td>
+						<td>
+							<label>Insurance:</label>
+						</td>
+						<td colspan="2">
+							<input type="radio" id="insurance_yes" name="insurance" value="1" required>
+							<label for="insurance_yes">Yes</label>
+
+							<input type="radio" id="insurance_no" name="insurance" value="0">
+							<label for="insurance_no">No</label>
+						</td>
 					</tr>
 				</table>
-			<h3>Insurance Information</h3>
+			</div>	
+
+			<!--======================================== Block 3: Insurance Information ========================================-->
+			<div class="section">
+				<div class="section-title">
+					Insurance Information
+				</div>
 				<table>
 					<tr>
-						<td>Primary Insurance:</td>
-							<td>
-								<input type="text" name="insurance_name">
-							</td>
-						<td>Phone Number:</td>
-							<td>
-								<input type="text" name="insurance_phone">
-							</td>
+						<td>
+							<label for="insurance_name">Primary Insurance:</label>
+						</td>
+						<td>
+							<input type="text" id="insurance_name" name="insurance_name" placeholder="Insurance Name">
+						</td>
+
+						<td>
+							<label for="insurance_phone">Insurance Phone Number:</label>
+						</td>
+						<td>
+							<input type="text" id="insurance_phone" name="insurance_phone" minlength="10" maxlength="12" placeholder="281-000-0000">
+						</td>
 					</tr>
 					<tr>
-						<td>Group Number:</td>
-							<td>
-								<input type="text" name="group_number">
-							</td>
-						<td>Policy/Member ID Number:</td>
-							<td>
-								<input type="text" name="member_id">
-							</td>
+						<td>
+							<label for="group_number">Group Number:</label>
+						</td>
+						<td>
+							<input type="text" id="group_number" name="group_number" placeholder="123456">
+						</td>
+
+						<td>
+							<label for="member_id">Member ID:</label>
+						</td>
+						<td>
+							<input type="text" id="member_id" name="member_id" placeholder="ABC123456789">
+						</td>
 					</tr>
 					<tr>
-						<td>Policy Holder Name:</td>
-							<td>
-								<input type="text" name="policy_holder_name">
-							</td>
-						<td>Relationship to Patient:</td>
-							<td>
-								<input type="radio" name="relationship" value="1"> Self
-								<input type="radio" name="relationship" value="2"> Spouse
-								<input type="radio" name="relationship" value="3"> Child
-								<input type="radio" name="relationship" value="4"> Parent
-								<input type="radio" name="relationship" value="5"> Other
-							</td>
+						<td>
+							<label for="policy_holder_name">Policy Holder Name:</label>
+						</td>
+						<td>
+							<input type="text" id="policy_holder_name" name="policy_holder_name" placeholder="First and Last">
+						</td>
+
+						<td>
+							<label>Relationship to Patient:</label>
+						</td>
+						<td colspan="3">
+							<input type="radio" id="self" name="relationship" value="1">
+							<label for="self">Self</label>
+							
+							<input type="radio" id="spouse" name="relationship" value="2">
+							<label for="spouse">Spouse</label>
+							
+							<input type="radio" id="child" name="relationship" value="3">
+							<label for="child">Child</label>
+							
+							<input type="radio" id="parent" name="relationship" value="4">
+							<label for="parent">Parent</label>
+							
+							<input type="radio" id="other_relationship" name="relationship" value="5">
+							<label for="other_relationship">Other</label>
+						</td>
 					</tr>
 					<tr>
-						<td>Policy Holder DOB:</td>
-							<td>
-								<input type="date" name="policy_holder_dob">
-							</td>
-						<td>Policy Holder SSN:</td>
-							<td>
-								<input type="text" name="policy_holder_ssn">
-							</td>	
+						<td>
+							<label for="policy_holder_dob">Policy Holder's DOB:</label>
+						</td>
+						<td>
+							<input type="date" id="policy_holder_dob" name="policy_holder_dob">
+						</td>
+
+						<td>
+							<label for="policy_holder_ssn">Policy Holder's SSN:</label>
+						</td>
+						<td>
+							<input type="password" id="policy_holder_ssn" name="policy_holder_ssn" minlength="9" maxlength="11" placeholder="###-##-####">
+						</td>	
 					</tr>
 				</table>
-			<h3>Medical History</h3>
+			</div>	
+
+
+			<!--======================================== Block 4: Medical History ========================================-->
+			<div class="section">
+				<div class="section-title">
+					Medical History
+				</div>
 				<table>
 					<tr>
-						<td>Do you suffer from any medical conditions? (Check all that apply)</td>
-					</tr>
-					<tr>
 						<td>
-							<input type="checkbox" name="heart_disease" value="heart_disease"> Heart Disease
-							<input type="checkbox" name="diabetes" value="diabetes"> Diabetes
-							<input type="checkbox" name="gout" value="gout"> Gout
-							<input type="checkbox" name="tuberculosis" value="tuberculosis"> Tuberculosis
+							<label>Do you suffer from any medical conditions? (Check all that apply)</label>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="cancer" value="cancer"> Cancer
-							<input type="checkbox" name="hiv_aids" value="hiv_aids"> HIV/AIDS
-							<input type="checkbox" name="arthritis" value="arthritis"> Arthritis
-							<input type="checkbox" name="ulcers" value="ulcers"> Ulcers
+							<input type="checkbox" id="heart_disease" name="heart_disease" value="heart_disease">
+							<label for="heart_disease">Heart Disease</label>
+
+							<input type="checkbox" id="diabetes" name="diabetes" value="diabetes">
+							<label for="diabetes">Diabetes</label>
+
+							<input type="checkbox" id="gout" name="gout" value="gout">
+							<label for="gout">Gout</label>
+
+							<input type="checkbox" id="tuberculosis" name="tuberculosis" value="tuberculosis">
+							<label for="tuberculosis">Tuberculosis</label>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="hbp" value="hbp"> High Blood Pressure
-							<input type="checkbox" name="epilepsy" value="epilepsy"> Epilepsy
-							<input type="checkbox" name="liver_disease" value="liver_disease"> Liver Disease
-							<input type="checkbox" name="high_cholesterol" value="high_cholesterol"> High Cholesterol
+							<input type="checkbox" id="cancer" name="cancer" value="cancer">
+							<label for="cancer">Cancer</label>
+
+							<input type="checkbox" id="hiv_aids" name="hiv_aids" value="hiv_aids">
+							<label for="hiv_aids">HIV/AIDS</label>
+
+							<input type="checkbox" id="arthritis" name="arthritis" value="arthritis">
+							<label for="arthritis">Arthritis</label>
+							
+							<input type="checkbox" id="ulcers" name="ulcers" value="ulcers">	
+							<label for="ulcers">Ulcers</label>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="checkbox" name="stroke" value="stroke"> Stroke
-							<input type="checkbox" name="asthma" value="asthma"> Asthma
-							<input type="checkbox" name="kidney_disease" value="kidney_disease"> Kidney Disease
-							<input type="checkbox" name="other_condition" value="other"> Other
+							<input type="checkbox" id="hbp" name="hbp" value="hbp">
+							<label for="hbp">High Blood Pressure</label>
+
+							<input type="checkbox" id="epilepsy" name="epilepsy" value="epilepsy">
+							<label for="epilepsy">Epilepsy</label>
+
+							<input type="checkbox" id="liver_disease" name="liver_disease" value="liver_disease">
+							<label for="liver_disease">Liver Disease</label>
+
+							<input type="checkbox" id="high_cholesterol" name="high_cholesterol" value="high_cholesterol">
+							<label for="high_cholesterol">High Cholesterol</label>
 						</td>
 					</tr>
 					<tr>
-						<td>How much pain are you experiencing?</td>
+						<td>
+							<input type="checkbox" id="stroke" name="stroke" value="stroke">
+							<label for="stroke">Stroke</label>
+							
+							<input type="checkbox" id="asthma" name="asthma" value="asthma">
+							<label for="asthma">Asthma</label>
+
+							<input type="checkbox" id="kidney_disease" name="kidney_disease" value="kidney_disease">
+							<label for="kidney_disease">Kidney Disease</label>
+
+							<input type="checkbox" id="other_condition" name="other_condition" value="other">
+							<label for="other_condition">Other</label>
+						</td>
 					</tr>
 					<tr>
-						<td>
-							<input type="range" class="slider" id="health_rating" name="health_rating" min="1" step="1" max="10">
+						<td colspan="4">
+							<br>
+							<label for="health_rating">How much pain are you experiencing?</label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							No Pain
+							<input type="range" class="slider" id="health_rating" name="health_rating" min="1" max="10" step="1" value="5">
+							Excruciating Pain
 						</td>
 					</tr>
 					<tr> 
-						<td>Please list any medications currently taking:</td>
-					</tr>
+						<td>
+							<label for="current_medications">Please list any medications currently taking:</label>
+						</td>
+					</tr>	
 					<tr>	
-							<td>
-								<textarea name="current_medications" rows="4" cols="50"></textarea>
-							</td>
+						<td colspan="4">
+							<textarea id="current_medications" name="current_medications" rows="4" cols="50" placeholder="List all current medications"></textarea>
+						</td>
 					</tr>
 				</table>
-			<input type="submit" value="Submit">
-			<input type="reset" value="Reset">	
+			</div>
+
+
+			<!--======================================== Button Actions ========================================-->
+			<br>
+			<div id="buttons">
+				<input type="submit" id="submit_button" value="Submit">
+				<input type="reset" id=reset_button value="Reset">	
+			</div>
 		</form>
+
+
+		<!--======================================== Date Script from Professor Messinger's Homework 2 Example ========================================-->
 		<script>
 			const d=new Date();
 			let text=d.toLocaleDateString();
 			document.getElementById("today").innerHTML=text;
 		</script>
+
+
+		<!--======================================== Footer Section ========================================-->
+		<br>
 		<div id="footer">
 			<h4>Misu Medical Institute</h4>
+			<p>0913 Wellness Street Drive, Houston TX 77000<br>Phone: 281-822-2001</p>
+			<button type="button">Contact Us</button>
 		</div>
-	</body>
-</html>
 
+	</body>
+	</html>
+	<!--======================================== End of patient-form.html ========================================-->
